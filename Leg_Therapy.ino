@@ -20,17 +20,7 @@ void setup() {
   pinMode(Button2, INPUT);
   pinMode(Button3, INPUT);
   pinMode(Button4, INPUT);
-  lcd.begin(16, 4);
-  // Print a message to the LCD.
-  lcd.setCursor(1,0);
-  lcd.print("--------------");
-  lcd.setCursor(3,1);
-  lcd.print("FLEX10SION");
-  lcd.setCursor(4,2);
-  lcd.print("ROBOTICS");
-  lcd.setCursor(1,4);
-  lcd.print("--------------");
-  delay(5000);
+  lcd.begin(20, 4);
 }
 
 void loop() {
@@ -53,12 +43,20 @@ void loop() {
   lcd.print("Calf Raises");
   digitalWrite(motor1pin1, HIGH);
   digitalWrite(motor1pin2, LOW);
-  delay(1500);
+  delay(650);
   digitalWrite(motor1pin1, LOW);
   digitalWrite(motor1pin2, HIGH);
-  delay(1500);
+  delay(650);
+  lcd.clear();
     }
   else if(temp1 == 1){
+    
+  digitalWrite(motor2pin2, HIGH);
+  digitalWrite(motor2pin1, LOW);
+  delay(650);
+  digitalWrite(motor2pin2, LOW);
+  digitalWrite(motor2pin1, HIGH);
+  delay(650);
   lcd.clear();
   lcd.setCursor(1,0);
   lcd.print("Starting");
@@ -68,13 +66,9 @@ void loop() {
   lcd.print("30 Degree Right");
   lcd.setCursor(1,3);
   lcd.print("Calf Raises");
-  digitalWrite(motor2pin2, HIGH);
-  digitalWrite(motor2pin1, LOW);
-  delay(1500);
-  digitalWrite(motor1pin2, LOW);
-  digitalWrite(motor1pin1, HIGH);
-  delay(1500);
+  lcd.clear();
     }
+    
   else if(temp2 == 1){
   lcd.clear();
   lcd.setCursor(1,0);
@@ -87,10 +81,11 @@ void loop() {
   lcd.print("Calf Raises");
   digitalWrite(motor1pin1, HIGH);
   digitalWrite(motor1pin2, LOW);
-  delay(2500);
+  delay(1500);
   digitalWrite(motor1pin1, LOW);
   digitalWrite(motor1pin2, HIGH);
-  delay(2500);
+  delay(1500);
+  lcd.clear();
     }
   else if(temp3 == 1){
   lcd.clear();
@@ -99,57 +94,31 @@ void loop() {
   lcd.setCursor(0,1);
   lcd.print("----------------");
   lcd.setCursor(1,2);
-  lcd.print("6 0 Degree Right");
+  lcd.print("60 Degree Right");
   lcd.setCursor(1,3);
   lcd.print("Calf Raises");
   digitalWrite(motor2pin2, HIGH);
   digitalWrite(motor2pin1, LOW);
-  delay(2500);
+  delay(1500);
+  digitalWrite(motor2pin2, LOW);
+  digitalWrite(motor2pin1, HIGH);
+  delay(1500);
+  lcd.clear();
+    }
+  else if(temp == 0 || temp1 == 0 || temp2 == 0 || temp3 == 0){
+  // Print a message to the LCD.
+  lcd.setCursor(1,0);
+  lcd.print("------------------");
+  lcd.setCursor(5,1);
+  lcd.print("FLEX10SION");
+  lcd.setCursor(6,2);
+  lcd.print("ROBOTICS");
+  lcd.setCursor(1,4);
+  lcd.print("------------------");
+  digitalWrite(motor1pin1, LOW);
   digitalWrite(motor1pin2, LOW);
-  digitalWrite(motor1pin1, HIGH);
-  delay(2500);
+  digitalWrite(motor2pin1, LOW);
+  digitalWrite(motor2pin2, LOW);
+ 
     }
-  else{
-  lcd.clear();
-  lcd.setCursor(2,0);
-  lcd.print("**BUTTON 1**");
-  lcd.setCursor(0,1);
-  lcd.print("----------------");
-  lcd.setCursor(1,2);
-  lcd.print("30 Degree Left");
-  lcd.setCursor(1,3);
-  lcd.print("Calf Raises");
-  delay(1000);
-  lcd.clear();
-  lcd.setCursor(2,0);
-  lcd.print("**BUTTON 2**");
-  lcd.setCursor(0,1);
-  lcd.print("----------------");
-  lcd.setCursor(1,2);
-  lcd.print("30 Degree Right");
-  lcd.setCursor(1,3);
-  lcd.print("Calf Raises");
-  delay(1000);
-  lcd.clear();
-  lcd.setCursor(2,0);
-  lcd.print("**BUTTON 3**");
-  lcd.setCursor(0,1);
-  lcd.print("----------------");
-  lcd.setCursor(1,2);
-  lcd.print("60 Degree Left");
-  lcd.setCursor(1,3);
-  lcd.print("Calf Raises");
-  delay(1000);
-  lcd.clear();
-  lcd.setCursor(2,0);
-  lcd.print("**BUTTON 4**");
-  lcd.setCursor(0,1);
-  lcd.print("----------------");
-  lcd.setCursor(1,2);
-  lcd.print("60 Degree Right");
-  lcd.setCursor(1,3);
-  lcd.print("Calf Raises");
-  delay(1000);
-    }
-
 }
